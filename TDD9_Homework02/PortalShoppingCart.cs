@@ -19,6 +19,9 @@ namespace TDD9_Homework02
             if (qty >= 3)
                 discount = 0.1M;
 
+            if (qty >= 4)
+                discount = 0.2M;
+
             return (1 - discount) * qty * originalUnitPrice;
         }
     }
