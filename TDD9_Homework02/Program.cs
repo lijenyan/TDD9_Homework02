@@ -10,6 +10,7 @@ namespace TDD9_Homework02
     {
         static void Main(string[] args)
         {
+            Console.ReadLine();
         }
     }
 }
