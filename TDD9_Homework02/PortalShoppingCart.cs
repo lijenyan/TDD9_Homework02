@@ -8,15 +8,18 @@ namespace TDD9_Homework02
 {
     public class PortalShoppingCart
     {
-        public decimal GetTotalPrice(List<Book> books,decimal unitPrice)
+        public decimal GetTotalPrice(List<Book> books,decimal originalUnitPrice)
         {
-            return books.Count*unitPrice;
+            var qty = books.Where(x => x.Unit > 0).Select(x=>x.Unit).Sum();
+            return qty * originalUnitPrice;
         }
     }
 
     public class Book
     {
         public HarryPortalBooksName Name { get; set; }
+
+        public int Unit { get; set; }
     }
 
     public enum HarryPortalBooksName

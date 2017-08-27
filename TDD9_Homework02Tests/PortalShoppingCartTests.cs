@@ -12,19 +12,19 @@ namespace TDD9_Homework02.Tests
     public class PortalShoppingCartTests
     {
         [TestMethod()]
-        public void GetTotalPriceTest_Buy_5_DifferentBook_TotalPrice_500()
+        public void GetTotalPriceTest_Buy_1_Book_TotalPrice_100()
         {
             //arrange
             List<Book> Books = new List<Book>
             {
-                new Book { Name = HarryPortalBooksName.Series1st},
-                new Book { Name = HarryPortalBooksName.Series2nd},
-                new Book { Name = HarryPortalBooksName.Series3rd},
-                new Book { Name = HarryPortalBooksName.Series4th},
-                new Book { Name = HarryPortalBooksName.Series5th}
+                new Book { Name = HarryPortalBooksName.Series1st,Unit=1},
+                new Book { Name = HarryPortalBooksName.Series2nd,Unit=0},
+                new Book { Name = HarryPortalBooksName.Series3rd,Unit=0},
+                new Book { Name = HarryPortalBooksName.Series4th,Unit=0},
+                new Book { Name = HarryPortalBooksName.Series5th,Unit=0}
             };
             var target = new PortalShoppingCart();
-            decimal expected = 500.0M;
+            decimal expected = 100.0M;
 
             //act
             decimal actual = target.GetTotalPrice(Books,100);
