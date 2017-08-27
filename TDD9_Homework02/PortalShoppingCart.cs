@@ -10,28 +10,33 @@ namespace TDD9_Homework02
     {
         public decimal GetTotalPrice(List<Book> books, decimal originalUnitPrice)
         {
-            var qty = books.Where(x => x.Unit > 0).Select(x => x.Unit).Sum();
-            decimal discount = GetDiscount(qty);
-            return (1 - discount) * qty * originalUnitPrice;
+            decimal totalPrice = 0;
+            int totalQty = books.Where(x => x.Unit > 0).Select(x => x.Unit).Sum();
+
+            while (totalQty > 0)
+            {
+                //有多少書是不重複的
+                var distinctBooks = books.Where(x => x.Unit > 0).Distinct().ToArray();
+                int distinctBooksQty = distinctBooks.Count();
+                decimal discount = GetDiscount(distinctBooksQty);
+                totalPrice = totalPrice + (1 - discount) * distinctBooksQty * originalUnitPrice;
+
+                //剩餘要繼續計算價錢的書的總數量
+                totalQty = totalQty - distinctBooksQty;
+                //購買數量大於 0 本的書,其數量皆減 1
+                foreach (Book book in distinctBooks)
+                {
+                    book.Unit = book.Unit - 1;
+                }
+            }
+
+            return totalPrice;
         }
 
         private decimal GetDiscount(int qty)
         {
-            decimal discount = 0;
-
-            if (qty >= 2)
-                discount=  0.05M;
-
-            if (qty >= 3)
-                discount = 0.1M;
-
-            if (qty >= 4)
-                discount = 0.2M;
-
-            if (qty >= 5)
-                discount = 0.25M;
-
-            return discount;
+            decimal[] discount = new decimal[] { 0, 0.05M, 0.1M, 0.2M, 0.25M };
+            return discount[qty - 1];
         }
     }
 
