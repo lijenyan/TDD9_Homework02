@@ -12,7 +12,7 @@ namespace TDD9_Homework02.Tests
     public class PortalShoppingCartTests
     {
         [TestMethod()]
-        public void GetTotalPriceTest()
+        public void GetTotalPriceTest_Buy_5_DifferentBook_TotalPrice_500()
         {
             //arrange
             List<Book> Books = new List<Book>
