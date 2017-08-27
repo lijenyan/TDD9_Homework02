@@ -10,7 +10,7 @@ namespace TDD9_Homework02
     {
         public decimal GetTotalPrice(List<Book> books,decimal unitPrice)
         {
-            return 0;
+            return books.Count*unitPrice;
         }
     }
 
