@@ -8,10 +8,16 @@ namespace TDD9_Homework02
 {
     public class PortalShoppingCart
     {
-        public decimal GetTotalPrice(List<Book> books,decimal originalUnitPrice)
+        public decimal GetTotalPrice(List<Book> books, decimal originalUnitPrice)
         {
-            var qty = books.Where(x => x.Unit > 0).Select(x=>x.Unit).Sum();
-            return qty * originalUnitPrice;
+            var qty = books.Where(x => x.Unit > 0).Select(x => x.Unit).Sum();
+            decimal discount = 0;
+            if (qty >= 2)
+                discount = 0.05M;
+            else
+                discount = 0;
+
+            return (1-discount) * qty * originalUnitPrice;
         }
     }
 
