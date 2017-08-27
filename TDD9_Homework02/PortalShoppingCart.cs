@@ -12,12 +12,14 @@ namespace TDD9_Homework02
         {
             var qty = books.Where(x => x.Unit > 0).Select(x => x.Unit).Sum();
             decimal discount = 0;
+
             if (qty >= 2)
                 discount = 0.05M;
-            else
-                discount = 0;
 
-            return (1-discount) * qty * originalUnitPrice;
+            if (qty >= 3)
+                discount = 0.1M;
+
+            return (1 - discount) * qty * originalUnitPrice;
         }
     }
 
