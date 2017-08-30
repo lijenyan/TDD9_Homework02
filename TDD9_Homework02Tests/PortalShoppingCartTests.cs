@@ -11,6 +11,7 @@ namespace TDD9_Homework02.Tests
     [TestClass()]
     public class PortalShoppingCartTests
     {
+        const decimal unitOfPrice = 100;
         [TestMethod()]
         public void GetTotalPriceTest_Buy_1_Book_TotalPrice_100()
         {
@@ -23,11 +24,11 @@ namespace TDD9_Homework02.Tests
                 new Book { Name = HarryPortalBooksName.Series4th,Unit=0},
                 new Book { Name = HarryPortalBooksName.Series5th,Unit=0}
             };
-            var target = new PortalShoppingCart();
+            var target = new PortalShoppingCart(unitOfPrice);
             decimal expected = 100.0M;
 
             //act
-            decimal actual = target.GetTotalPrice(Books,100);
+            decimal actual = target.FindTheLowerTotalPrice(Books);
 
             //assert
             Assert.AreEqual(expected,actual);
@@ -45,11 +46,11 @@ namespace TDD9_Homework02.Tests
                 new Book { Name = HarryPortalBooksName.Series4th,Unit=0},
                 new Book { Name = HarryPortalBooksName.Series5th,Unit=0}
             };
-            var target = new PortalShoppingCart();
+            var target = new PortalShoppingCart(unitOfPrice);
             decimal expected = 190.0M;
 
             //act
-            decimal actual = target.GetTotalPrice(Books, 100);
+            decimal actual = target.FindTheLowerTotalPrice(Books);
 
             //assert
             Assert.AreEqual(expected, actual);
@@ -67,11 +68,11 @@ namespace TDD9_Homework02.Tests
                 new Book { Name = HarryPortalBooksName.Series4th,Unit=0},
                 new Book { Name = HarryPortalBooksName.Series5th,Unit=0}
             };
-            var target = new PortalShoppingCart();
+            var target = new PortalShoppingCart(unitOfPrice);
             decimal expected = 270.0M;
 
             //act
-            decimal actual = target.GetTotalPrice(Books, 100);
+            decimal actual = target.FindTheLowerTotalPrice(Books);
 
             //assert
             Assert.AreEqual(expected, actual);
@@ -89,11 +90,11 @@ namespace TDD9_Homework02.Tests
                 new Book { Name = HarryPortalBooksName.Series4th,Unit=1},
                 new Book { Name = HarryPortalBooksName.Series5th,Unit=0}
             };
-            var target = new PortalShoppingCart();
+            var target = new PortalShoppingCart(unitOfPrice);
             decimal expected = 320.0M;
 
             //act
-            decimal actual = target.GetTotalPrice(Books, 100);
+            decimal actual = target.FindTheLowerTotalPrice(Books);
 
             //assert
             Assert.AreEqual(expected, actual);
@@ -111,11 +112,11 @@ namespace TDD9_Homework02.Tests
                 new Book { Name = HarryPortalBooksName.Series4th,Unit=1},
                 new Book { Name = HarryPortalBooksName.Series5th,Unit=1}
             };
-            var target = new PortalShoppingCart();
+            var target = new PortalShoppingCart(unitOfPrice);
             decimal expected = 375.0M;
 
             //act
-            decimal actual = target.GetTotalPrice(Books, 100);
+            decimal actual = target.FindTheLowerTotalPrice(Books);
 
             //assert
             Assert.AreEqual(expected, actual);
@@ -133,11 +134,11 @@ namespace TDD9_Homework02.Tests
                 new Book { Name = HarryPortalBooksName.Series4th,Unit=0},
                 new Book { Name = HarryPortalBooksName.Series5th,Unit=0}
             };
-            var target = new PortalShoppingCart();
+            var target = new PortalShoppingCart(unitOfPrice);
             decimal expected = 370.0M;
 
             //act
-            decimal actual = target.GetTotalPrice(Books, 100);
+            decimal actual = target.FindTheLowerTotalPrice(Books);
 
             //assert
             Assert.AreEqual(expected, actual);
@@ -155,11 +156,11 @@ namespace TDD9_Homework02.Tests
                 new Book { Name = HarryPortalBooksName.Series4th,Unit=0},
                 new Book { Name = HarryPortalBooksName.Series5th,Unit=0}
             };
-            var target = new PortalShoppingCart();
+            var target = new PortalShoppingCart(unitOfPrice);
             decimal expected = 460.0M;
 
             //act
-            decimal actual = target.GetTotalPrice(Books, 100);
+            decimal actual = target.FindTheLowerTotalPrice(Books);
 
             //assert
             Assert.AreEqual(expected, actual);
@@ -177,11 +178,11 @@ namespace TDD9_Homework02.Tests
                 new Book { Name = HarryPortalBooksName.Series4th,Unit=1},
                 new Book { Name = HarryPortalBooksName.Series5th,Unit=1}
             };
-            var target = new PortalShoppingCart();
+            var target = new PortalShoppingCart(unitOfPrice);
             decimal expected = 640.0M;
 
             //act
-            decimal actual = target.GetTotalPrice(Books, 100);
+            decimal actual = target.FindTheLowerTotalPrice(Books);
 
             //assert
             Assert.AreEqual(expected, actual);
